@@ -1,15 +1,10 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
-const { CommandHandler } = require('djs-commander');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 const path = require('path')
 
 // command tester
-new CommandHandler({
-  client,
-  commandsPath: path.join(__dirname, 'commands'),
-});
 
 // Load replies from replies.json
 const replies = JSON.parse(fs.readFileSync('replies.json', 'utf-8'));
